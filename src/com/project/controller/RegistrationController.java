@@ -74,7 +74,7 @@ public class RegistrationController {
 		userDao.saveResourceRegistration(resource);
 		resourceDao.addPhoto(resume);
 		res.setResource_oid(resource.getOid());
-		res.setResume_oid(resume.getOid());
+		res.setResume_oid(resourceDao.getId());
 		logger.info(res);
 		userDao.saveResume(res);
 		return "login";

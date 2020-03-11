@@ -16,7 +16,7 @@ public class Resume {
 	@Column(name = "oid")
 	private int oid;
 	@Column(name = "resume_oid")
-	private int resume_oid;
+	private String resume_oid;
 	@Column(name = "resource_oid")
 	private int resource_oid;
 
@@ -28,11 +28,11 @@ public class Resume {
 		this.oid = oid;
 	}
 
-	public int getResume_oid() {
+	public String getResume_oid() {
 		return resume_oid;
 	}
 
-	public void setResume_oid(int resume_oid) {
+	public void setResume_oid(String resume_oid) {
 		this.resume_oid = resume_oid;
 	}
 

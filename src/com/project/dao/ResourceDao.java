@@ -8,4 +8,6 @@ public interface ResourceDao {
 
 	ResumeFile addPhoto(ResumeFile file) throws IOException;
 
+	String getId();
+
 }
