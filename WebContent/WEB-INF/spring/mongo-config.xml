@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="https://www.springframework.org/schema/beans"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="https://www.springframework.org/schema/context"
+	xmlns:mongo="https://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="https://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		https://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.0.xsd
+		https://www.springframework.org/schema/data/mongo https://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd">
+
+	<mongo:mongo host="localhost" port="27017" id="mongo" />
+	<mongo:db-factory dbname="db"
+		mongo-ref="mongo" id="mongoDbFactory" />
+
+	<bean id="mongoTemplate"
+		class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory"
+			ref="mongoDbFactory" />
+	</bean>
+
+	<bean id="personDAO"
+		class="com.project.dao.ResourceDao">
+		<constructor-arg name="mongoOps" ref="mongoTemplate" />
+	</bean>
+</beans>
